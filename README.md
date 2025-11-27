@@ -1,47 +1,86 @@
-# 🎵 Portafolio Musical
 
-Portafolio web profesional para músicos, construido con Next.js 14, MongoDB y Tailwind CSS.
+# 🎵 Portafolio Musical Profesional
 
-## ✨ Características
+> Un portafolio web moderno y optimizado para músicos, construido con **Next.js 14**, **MongoDB Atlas** y **Tailwind CSS**.
+
+---
+
+## 🚀 Tecnologías Principales
+
+- [Next.js 14](https://nextjs.org/) — Framework React para aplicaciones web modernas
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database) — Base de datos en la nube
+- [Tailwind CSS](https://tailwindcss.com/) — Utilidades CSS para diseño rápido y responsivo
+- [NextAuth.js](https://next-auth.js.org/) — Autenticación segura
+- [Framer Motion](https://www.framer.com/motion/) — Animaciones fluidas
+
+---
+
+## ✨ Funcionalidades
 
 - 🎸 Visualización de canciones con reproductor de YouTube integrado
-- 🔐 Panel de administración seguro con NextAuth
-- 📱 Diseño responsive y moderno
-- ⚡ Carga rápida y optimizada
-- 🎨 Animaciones fluidas con Framer Motion
-- 🖼️ Soporte para imágenes decorativas
+- 🔐 Panel de administración seguro para gestión de tracks
+- 📱 Diseño responsive y experiencia mobile-first
+- ⚡ Carga rápida y optimización SEO
+- 🎨 Animaciones y transiciones profesionales
+- 🖼️ Soporte para imágenes personalizadas
 
-## 🚀 Instalación
+---
 
-```bash
-# Instalar dependencias
-npm install
+## 🛠️ Instalación y Uso Local
 
-# Configurar .env.local con tus credenciales
+1. **Clona el repositorio:**
+	```bash
+	git clone https://github.com/klarnm/Klarnm.git
+	cd Klarnm
+	```
+2. **Instala dependencias:**
+	```bash
+	npm install
+	```
+3. **Configura las variables de entorno:**
+	- Crea un archivo `.env.local` basado en `.env.example` (si existe).
+	- Añade tu URI de MongoDB Atlas y credenciales de autenticación.
+4. **Inicia el servidor de desarrollo:**
+	```bash
+	npm run dev
+	```
 
-# Iniciar servidor de desarrollo
-npm run dev
-```
+---
 
-## 🎨 Personalización
+## 🎨 Personalización Visual
 
-### Agregar imágenes decorativas
+Coloca tus imágenes en la carpeta `/public/images/`:
 
-Coloca tus imágenes en `/public/images/`:
-- `/public/images/hero-bg.jpg` - Fondo del hero
-- `/public/images/avatar.png` - Tu foto/avatar
-- `/public/images/oc/` - Imágenes de tu OC
+- `hero-bg.jpg` — Fondo principal
+- `avatar.png` — Foto o logo personal
+- `/oc/` — Imágenes adicionales para tu portafolio
 
-## 🔐 Panel Admin
+---
 
-Accede en `/admin/login` para gestionar tus canciones:
-- ✅ Agregar nuevas canciones
-- ✏️ Editar canciones existentes  
+## 🔐 Panel de Administración
+
+Accede a `/admin/login` para gestionar tu música:
+
+- ➕ Agregar nuevas canciones
+- 📝 Editar canciones existentes
 - 🗑️ Eliminar canciones
 - ⭐ Marcar canciones como destacadas
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ☁️ Despliegue en Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El método recomendado es usar [Vercel](https://vercel.com/) para desplegar tu app:
+
+1. Sube tu código a GitHub.
+2. Conecta el repositorio en [Vercel](https://vercel.com/new).
+3. Configura las variables de entorno (por ejemplo, `MONGODB_URI`).
+4. ¡Listo! Tu portafolio estará online y optimizado.
+
+Más información en la [documentación oficial de Next.js](https://nextjs.org/docs/app/building-your-application/deploying).
+
+---
+
+## 📄 Licencia
+
+MIT — Libre para uso y modificación.
