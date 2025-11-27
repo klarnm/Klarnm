@@ -1,33 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎵 Portafolio Musical
 
-## Getting Started
+Portafolio web profesional para músicos, construido con Next.js 14, MongoDB y Tailwind CSS.
 
-First, run the development server:
+## ✨ Características
+
+- 🎸 Visualización de canciones con reproductor de YouTube integrado
+- 🔐 Panel de administración seguro con NextAuth
+- 📱 Diseño responsive y moderno
+- ⚡ Carga rápida y optimizada
+- 🎨 Animaciones fluidas con Framer Motion
+- 🖼️ Soporte para imágenes decorativas
+
+## 🚀 Instalación
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Configurar .env.local con tus credenciales
+
+# Iniciar servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Personalización
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Agregar imágenes decorativas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Coloca tus imágenes en `/public/images/`:
+- `/public/images/hero-bg.jpg` - Fondo del hero
+- `/public/images/avatar.png` - Tu foto/avatar
+- `/public/images/oc/` - Imágenes de tu OC
 
-## Learn More
+## 🔐 Panel Admin
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Accede en `/admin/login` para gestionar tus canciones:
+- ✅ Agregar nuevas canciones
+- ✏️ Editar canciones existentes  
+- 🗑️ Eliminar canciones
+- ⭐ Marcar canciones como destacadas
 
 ## Deploy on Vercel
 

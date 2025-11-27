@@ -1,26 +1,379 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #8B1A1A;      /* Rojo oscuro/granate */
+  --color-secondary: #FF6B7A;     /* Rosa coral */
+  --color-accent: #A62B5C;        /* Magenta/fucsia */
+  --color-purple: #4A2747;        /* Púrpura oscuro */
+  --color-dark: #1A1625;          /* Azul marino oscuro */
+  --color-darker: #0D0A12;        /* Negro azulado */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-darker);
+  color: #ffffff;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scroll snap para secciones */
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-padding: 0;
+}
+
+main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Permitir que Music section crezca con contenido */
+main > section#music {
+  height: auto;
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Ajustes para móviles y tablets */
+@media (max-width: 768px) {
+  main > section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Números de fondo más pequeños en móvil */
+  main > section motion-div[style*="40rem"],
+  main > section motion-div[style*="35rem"],
+  main > section motion-div[style*="45rem"],
+  main > section motion-div[style*="50rem"] {
+    font-size: 15rem !important;
+  }
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(255, 107, 122, 0.03) 51%
+  );
+  background-size: 100% 4px;
+  z-index: 1;
+  animation: scanline 8s linear infinite;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(-2px, 2px);
+  }
+  66% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+/* Neon glow */
+.neon-glow {
+  text-shadow: 
+    0 0 10px var(--color-secondary),
+    0 0 20px var(--color-secondary),
+    0 0 30px var(--color-accent),
+    0 0 40px var(--color-accent);
+}
+
+.neon-box {
+  box-shadow: 
+    0 0 5px var(--color-secondary),
+    0 0 10px var(--color-accent),
+    inset 0 0 10px rgba(255, 107, 122, 0.2);
+}
+
+/* HUD Lines */
+@keyframes hud-line {
+  0%, 100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.hud-line {
+  animation: hud-line 2s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-secondary), 0 0 10px var(--color-secondary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-secondary), 0 0 30px var(--color-accent), 0 0 40px var(--color-primary);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Slide in from right */
+@keyframes slide-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-right {
+  animation: slide-right 0.5s ease-out;
+}
+
+/* Cyberpunk border */
+.cyber-border {
+  position: relative;
+}
+
+.cyber-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-purple));
+  border-radius: inherit;
+  opacity: 0.5;
+  z-index: -1;
+  animation: gradient-shift 3s ease infinite;
+  background-size: 300% 300%;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 107, 122, 0.15) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 107, 122, 0.15) 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 0;
+}
+
+/* Diagonal stripes */
+.diagonal-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(26, 22, 37, 0.8),
+    rgba(26, 22, 37, 0.8) 10px,
+    rgba(20, 17, 30, 0.9) 10px,
+    rgba(20, 17, 30, 0.9) 20px
+  );
+}
+
+/* Glitch text effect */
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+  }
+}
+
+.glitch-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 #ff6b7a;
+  animation: glitch-anim 0.3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: -2px 0 #a62b5c;
+  animation: glitch-anim 0.3s infinite linear alternate-reverse;
+  animation-delay: 0.1s;
+}
+
+/* Slide animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Rotate in */
+@keyframes rotate-in {
+  from {
+    transform: rotate(-180deg) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Perspective card */
+.perspective-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.perspective-card:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Diagonal stripes background - ZZZ style */
+.stripes-bg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.3) 10px,
+    rgba(0, 0, 0, 0.3) 20px
+  );
+}
+
+/* Carbon fiber texture */
+.carbon-bg {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      #1a1a1a 0px,
+      #1a1a1a 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #1a1a1a 0px,
+      #1a1a1a 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  background-size: 4px 4px;
+}
+
+/* Yellow accent block - ZZZ style */
+.yellow-block {
+  background: #E8FF00;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+/* Diagonal cut */
+.diagonal-cut {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+/* Number style - huge and bold */
+.section-number {
+  font-size: clamp(8rem, 20vw, 16rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  font-family: 'Arial Black', sans-serif;
 }
