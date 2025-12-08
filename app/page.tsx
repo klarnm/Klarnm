@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Music2, Mail, Instagram, Youtube, Disc3, Zap, Radio, Play, MessageCircle, Sparkles, Circle, Guitar, Wand2, Twitter, MessageSquare } from 'lucide-react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Music2, Mail, Instagram, Youtube, Disc3, Zap, Radio, Play, MessageCircle, Sparkles, Twitter, MessageSquare } from 'lucide-react';
 import TrackCard from '@/components/TrackCard';
 
 interface Track {
@@ -40,7 +41,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         {/* Complex layered background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1A1625] via-[#0D0A12] to-black" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#1A1625] via-[#0D0A12] to-black" />
           <div className="absolute inset-0 diagonal-stripes opacity-40" />
           <div className="absolute inset-0 grid-bg opacity-30" />
           
@@ -48,12 +49,12 @@ export default function Home() {
           <motion.div
             animate={{ scale: [1, 1.3, 1], x: [0, 50, 0], y: [0, -50, 0] }}
             transition={{ duration: 20, repeat: Infinity }}
-            className="absolute -top-1/3 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#FF6B7A]/30 via-[#A62B5C]/20 to-transparent rounded-full blur-3xl"
+            className="absolute -top-1/3 right-1/4 w-[600px] h-[600px] bg-linear-to-br from-[#FF6B7A]/30 via-[#A62B5C]/20 to-transparent rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1.3, 1, 1.3], x: [0, -50, 0], y: [0, 50, 0] }}
             transition={{ duration: 15, repeat: Infinity }}
-            className="absolute -bottom-1/3 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-[#4A2747]/30 via-[#8B1A1A]/20 to-transparent rounded-full blur-3xl"
+            className="absolute -bottom-1/3 left-1/4 w-[600px] h-[600px] bg-linear-to-tr from-[#4A2747]/30 via-[#8B1A1A]/20 to-transparent rounded-full blur-3xl"
           />
         </div>
 
@@ -94,7 +95,7 @@ export default function Home() {
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="absolute top-0 right-0 w-3 h-96 bg-gradient-to-b from-[#FF6B7A] to-transparent origin-top"
+            className="absolute top-0 right-0 w-3 h-96 bg-linear-to-b from-[#FF6B7A] to-transparent origin-top"
           />
           {/* Small accent squares */}
           <motion.div
@@ -123,7 +124,7 @@ export default function Home() {
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="absolute bottom-0 left-0 w-2 h-64 bg-gradient-to-t from-[#FF6B7A] to-transparent origin-bottom"
+            className="absolute bottom-0 left-0 w-2 h-64 bg-linear-to-t from-[#FF6B7A] to-transparent origin-bottom"
           />
         </motion.div>
         
@@ -156,11 +157,11 @@ export default function Home() {
                 <h1 className="text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-black leading-[0.85] tracking-tighter text-white uppercase"
                     style={{ fontFamily: 'Impact, "Arial Black", sans-serif' }}>
                   <span className="relative inline-block">
-                    <span className="relative z-10 bg-gradient-to-r from-white via-[#FF6B7A] to-[#A62B5C] bg-clip-text text-transparent">
+                    <span className="relative z-10 bg-linear-to-r from-white via-[#FF6B7A] to-[#A62B5C] bg-clip-text text-transparent">
                       KLARNM
                     </span>
                     {/* Glitch layers */}
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#FF6B7A] to-[#FFEE00] bg-clip-text text-transparent opacity-40 blur-sm"
+                    <span className="absolute inset-0 bg-linear-to-r from-[#FF6B7A] to-[#FFEE00] bg-clip-text text-transparent opacity-40 blur-sm"
                           style={{ transform: 'translate(4px, 4px)' }}>
                       KLARNM
                     </span>
@@ -183,7 +184,7 @@ export default function Home() {
                 className="space-y-6"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 bg-[#FF6B7A] flex items-center justify-center">
+                  <div className="shrink-0 w-16 h-16 bg-[#FF6B7A] flex items-center justify-center">
                     <Zap className="w-10 h-10 text-white" />
                   </div>
                   <div>
@@ -208,7 +209,7 @@ export default function Home() {
               >
                 <a
                   href="#music"
-                  className="group relative px-10 py-5 bg-gradient-to-r from-[#FF6B7A] to-[#A62B5C] text-white font-black text-lg uppercase tracking-wider overflow-hidden transition-all hover:scale-105 shadow-xl shadow-[#FF6B7A]/50"
+                  className="group relative px-10 py-5 bg-linear-to-r from-[#FF6B7A] to-[#A62B5C] text-white font-black text-lg uppercase tracking-wider overflow-hidden transition-all hover:scale-105 shadow-xl shadow-[#FF6B7A]/50"
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <Play className="w-6 h-6" />
@@ -277,7 +278,7 @@ export default function Home() {
                 className="relative w-full max-w-2xl"
               >
                 {/* Massive glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B7A] via-[#A62B5C] to-[#FFEE00] blur-3xl opacity-40 animate-pulse scale-110" />
+                <div className="absolute inset-0 bg-linear-to-br from-[#FF6B7A] via-[#A62B5C] to-[#FFEE00] blur-3xl opacity-40 animate-pulse scale-110" />
                 
                 {/* Corner frame elements - ZZZ style */}
                 <div className="absolute -top-8 -left-8 w-32 h-32 border-l-8 border-t-8 border-[#A62B5C] z-20" />
@@ -300,16 +301,18 @@ export default function Home() {
                 {/* Main image container */}
                 <div className="relative z-10 perspective-card">
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src="/images/hero-oc.png"
                       alt="Klarnm"
+                      width={500}
+                      height={500}
                       className="w-full h-auto filter contrast-110 saturate-110"
                     />
                     {/* Scan line overlay effect */}
                     <motion.div
                       animate={{ y: ['0%', '100%'] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF6B7A]/10 to-transparent h-32"
+                      className="absolute inset-0 bg-linear-to-b from-transparent via-[#FF6B7A]/10 to-transparent h-32"
                     />
                   </div>
                 </div>
@@ -349,7 +352,7 @@ export default function Home() {
         {/* Background effects */}
         <div className="absolute inset-0 grid-bg opacity-35" />
         <div className="absolute inset-0 diagonal-stripes opacity-5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-[#1A1625]/30 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/95 via-[#1A1625]/30 to-black/95" />
         
         {/* Massive "02" background */}
         <motion.div
@@ -383,7 +386,7 @@ export default function Home() {
           className="absolute top-20 left-0"
         >
           <div className="w-40 h-1 bg-[#A62B5C]" />
-          <div className="w-1 h-40 bg-gradient-to-b from-[#A62B5C] to-transparent" />
+          <div className="w-1 h-40 bg-linear-to-b from-[#A62B5C] to-transparent" />
         </motion.div>
 
         <div className="relative mx-auto max-w-6xl">
@@ -488,7 +491,7 @@ export default function Home() {
       <section id="music" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 grid-bg opacity-35" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-[#8B1A1A]/15 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/95 via-[#8B1A1A]/15 to-black/95" />
         
         {/* Massive "03" background */}
         <motion.div
@@ -519,14 +522,14 @@ export default function Home() {
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
-          className="absolute top-0 right-20 w-1 h-96 bg-gradient-to-b from-[#FF6B7A] to-transparent origin-top"
+          className="absolute top-0 right-20 w-1 h-96 bg-linear-to-b from-[#FF6B7A] to-transparent origin-top"
         />
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="absolute bottom-0 left-20 w-1 h-96 bg-gradient-to-t from-[#A62B5C] to-transparent origin-bottom"
+          className="absolute bottom-0 left-20 w-1 h-96 bg-linear-to-t from-[#A62B5C] to-transparent origin-bottom"
         />
 
         <div className="relative mx-auto max-w-7xl">
@@ -589,7 +592,7 @@ export default function Home() {
         {/* Background effects */}
         <div className="absolute inset-0 grid-bg opacity-35" />
         <div className="absolute inset-0 diagonal-stripes opacity-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-[#4A2747]/20 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/95 via-[#4A2747]/20 to-black/95" />
         
         {/* Massive "04" background */}
         <motion.div
@@ -746,7 +749,7 @@ export default function Home() {
       <section id="contact" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 grid-bg opacity-35" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-[#8B1A1A]/15 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/95 via-[#8B1A1A]/15 to-black/95" />
         
         {/* Massive "05" background */}
         <motion.div
@@ -841,7 +844,7 @@ export default function Home() {
                   className="group relative w-full sm:w-auto"
                 >
                   <div className="absolute inset-0 bg-[#FF6B7A] translate-x-2 translate-y-2" />
-                  <div className="relative px-12 py-6 bg-gradient-to-r from-[#FF6B7A] to-[#A62B5C] border-4 border-white flex items-center justify-center gap-4 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform">
+                  <div className="relative px-12 py-6 bg-linear-to-r from-[#FF6B7A] to-[#A62B5C] border-4 border-white flex items-center justify-center gap-4 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform">
                     <Mail className="h-8 w-8 text-white" />
                     <span className="text-white font-black text-2xl uppercase tracking-wider" style={{ fontFamily: 'Impact, "Arial Black", sans-serif' }}>
                       klarnm123@gmail.com
@@ -862,7 +865,7 @@ export default function Home() {
                 </div>
 
                 {/* Divider */}
-                <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#FF6B7A] to-transparent my-4" />
+                <div className="w-full h-1 bg-linear-to-r from-transparent via-[#FF6B7A] to-transparent my-4" />
 
                 {/* Social links */}
                 <div className="w-full">
